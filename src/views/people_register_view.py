@@ -18,3 +18,30 @@ class PeopleRegisterView:
     }
 
     return new_person_informations
+  
+  def registry_person_success(self, message: Dict) -> None:
+    os.system('cls||clear')
+    
+    success_message = f'''
+      Usuário cadastrado com sucesso!
+
+      Tipo: { message['type'] }
+      Registros: { message['count'] }
+      Infos:
+        Nome: { message['attributes']['name'] }
+        Idade: { message['attributes']['age'] }
+        Altura: { message['attributes']['height'] }
+    '''
+    
+    print(success_message)
+
+  def registry_person_fail(self, error: str) -> None:
+    os.system('cls||clear')
+
+    fail_message = f'''
+    Falha ao cadastrar usuário!
+    
+    Erro: { error }
+    '''
+    
+    print(fail_message)
