@@ -26,7 +26,7 @@ class PeopleFinderView:
       Infos:
         Name: { message['attributes']['name'] }
         Age: { message['attributes']['age'] }
-        Heigth: { message['attributes']['height'] }
+        Height: { message['attributes']['height'] }
     '''
     
     print(success_message)
