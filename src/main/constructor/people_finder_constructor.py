@@ -1,9 +1,15 @@
+from src.controllers.people_finder_controller import PeopleFinderController
 from src.views.people_finder_view import PeopleFinderView
 
 
 def people_finder_constructor():
   people_finder_view = PeopleFinderView()
-  # controller
+  people_finder_controller = PeopleFinderController()
 
   person_finder_informations = people_finder_view.find_person_view()
-  # enviar para o controller
+  response = people_finder_controller.find_by_name(person_finder_informations)
+
+  if response['success']:
+    people_finder_view.find_person_success(response['message'])
+  else:
+    people_finder_view.find_person_fail(response['error'])
